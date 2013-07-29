@@ -2,15 +2,19 @@
 public class library {
 	String address;
 	String hours;
-	Book[] books;
-	
+	int numbofbooks=0;
+	Book[] book;
 	void printAvailableBooks()
 	{
-		books.length;
+	
 	}
 	void borrowBook(String booktitle)
 	{
-		
 	}
-
+	void addBook(String booktitle)
+	{
+		book[numbofbooks]=new Book(booktitle);
+		numbofbooks++;
+	}
+	
 }
