@@ -12,9 +12,25 @@ public class library {
 			//Look through the library's index
 		}
 	}
-	void borrowBook(String booktitle)
-	{
-		//seek for the book in the library
+
+	void borrowBook(String booktitle) {
+		// seek for the book in the library
+		if (numbofbooks == 0) {
+			System.out.println("The library doesn't have any books.");
+		} else {
+			for (int x = 0; x < numbofbooks; x++) {
+				if (booktitle == book[x].title) {
+					if (!book[x].isBorrowed())
+					{
+						book[x].borrowed();
+					} else
+					{
+						System.out.println(booktitle+" is already borrowed.");
+					}
+					break;
+				} 
+			}
+		}
 	}
 	void addBook(String booktitle)
 	{
