@@ -1,7 +1,7 @@
 public class library {
 	String address;
 	int numbofbooks = 0;
-	Book[] book;
+	Book[] book = new Book[6];
 
 	public void printAvailableBooks() {
 		System.out.println("Library: "+this.address);
@@ -62,9 +62,14 @@ public class library {
 		}
 	}
 
-	public void addBook(Book books) {
-		book[numbofbooks]=new Book;
-		
+	public void addBook(String booktitle) {
+		try{
+		book[numbofbooks]=new Book(booktitle);
+		} catch(NullPointerException e)
+		{
+			System.err.println("Null Pointer Exception: "+e.getMessage());
+			
+		}
 		numbofbooks++;
 	}
 
@@ -76,16 +81,16 @@ public class library {
 		library firstLibrary = new library ("10 Main St.");
 		library secondLibrary = new library ("228 Liberty St.");
 		
-		firstLibrary.addBook(new Book("The Da Vinci Code"));
-		firstLibrary.addBook(new Book("Le Petit Prince"));
-		firstLibrary.addBook(new Book("A Tale of Two Cities"));
-		firstLibrary.addBook(new Book("The Lord of the Rings"));
-		
+		firstLibrary.addBook("The Da Vinci Code");
+		firstLibrary.addBook("Le Petit Prince");
+		firstLibrary.addBook("A Tale of Two Cities");
+		firstLibrary.addBook("The Lord of the Rings");
+		firstLibrary.borrowBook("The Lord of the Rings"); 
 		System.out.println("Books available in the first library:");
 		firstLibrary.printAvailableBooks();
 		System.out.println();
 		System.out.println("Books available in the second library:");
-		secondLibrary.printAvailableBooks();
+		secondLibrary.printAvailableBooks(); 
 		System.out.println();// Return The Lords of the Rings to the first library 
 		System.out.println("Returning The Lord of the Rings:"); 
 		firstLibrary.returnBook("The Lord of the Rings"); 
